@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/fevicon.png" type="image/png">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>Find Your Love</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login__content">
+           
+            <form id="loginForm" class="login__form">
+                <div>
+                    <h1 class="login__title">
+                        <span>Hello</span> Stranger
+                    </h1>
+                    <p class="login__description">
+                        Welcome! Please enter your name to continue.
+                    </p>
+                </div>
+                
+                <div class="login__inputs">
+                    <div>
+                        <label for="keyword" class="login__label">Name</label>
+                        <input type="text" placeholder="Enter your name. Eg: Chuchu" required class="login__input" id="keyword">
+                    </div>
+                </div>
+
+                <div class="login__buttons">
+                    <button type="submit" class="login__button">Enter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+    <!--=============== MAIN JS ===============-->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var keywordInput = document.getElementById('keyword').value.trim().toLowerCase(); // Convert input to lowercase
+            var keywordMap = {
+                'jyotishree acharya': 'https://www.example1.com',
+                'jyoti acharya': 'https://www.example2.com',
+                'jyoti': 'https://www.example3.com',
+                'chuchu': 'https://www.example1.com',
+                'gugulu': 'https://www.example2.com',
+                'chuin': 'https://www.example3.com'
+                // Add more mappings as needed
+            };
+            var defaultLink = 'https://www.default.com';
+            if (keywordMap.hasOwnProperty(keywordInput)) {
+                window.location.href = keywordMap[keywordInput];
+            } else {
+                window.location.href = defaultLink;
+            }
+        });
+    </script>
+    
+</body>
+</html>
